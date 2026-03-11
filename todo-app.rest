@@ -1,0 +1,68 @@
+
+### Variables (Change YOUR_TOKEN_HERE by the response token after login)
+@baseUrl = http://localhost:5000
+@token = YOUR_TOKEN_HERE
+
+### GET
+GET {{baseUrl}}
+
+### Register a user POST /AUTH/REGISTER
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "testpass123"
+}
+
+
+### Login a user POST /AUTH/LOGIN
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "testpass123"
+}
+
+### After logged-in, copy and paste the response token to @token above
+
+
+### GET All Todos
+GET {{baseUrl}}/todos
+Authorization: Bearer {{token}}
+
+
+### CREATE a new Todo
+POST {{baseUrl}}/todos
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "task": "Demo adding task"
+}
+
+
+### UPDATE Todo
+# update task content
+PUT {{baseUrl}}/todos/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "task": "Task updated",
+    "completed": true
+}
+
+### update completed
+PUT {{baseUrl}}/todos/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "completed": true
+}
+
+### DELETE Todo
+DELETE {{baseUrl}}/todos/1
+Authorization: Bearer {{token}}
