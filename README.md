@@ -37,8 +37,8 @@ Full-stack Todo application with JWT Authentication, built with Node.js, Express
 1. **Clone repository**
 
 ```bash
-git clone <your-repo-url>
-cd Chapter_3
+git clone https://github.com/GBGhost17/todo-app.git
+cd todo-app
 ```
 
 2. **Install dependencies**
@@ -69,7 +69,7 @@ Server will run at: `http://localhost:5000`
 ## 📁 Project Structure
 
 ```
-Chapter_3/
+todo-app/
 ├── src/
 │   ├── server.js              # Entry point
 │   ├── db.js                  # Database configuration
@@ -148,7 +148,6 @@ CREATE TABLE todos (
 2. Register a new account
 3. Login
 4. Start managing todos!
-
 
 ## 🚀 Deployment
 
