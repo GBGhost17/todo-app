@@ -9,6 +9,7 @@ node_modules/
 # Database files
 *.db
 database.db
+postgres-data/
 
 # Logs
 logs
@@ -28,3 +29,10 @@ Thumbs.db
 # Build files
 dist/
 build/
+
+# Prisma
+/src/generated/prisma
+
+# Docker
+docker-compose.override.yml
+.dockerignore
