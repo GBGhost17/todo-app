@@ -1,12 +1,11 @@
 
-import express, { Router } from 'express'
+import { Router } from 'express'
 import db from '../db.js'
-import authMiddleware from '../middleware/authMiddleware.js'
 
 const router = Router()
 
 // Get all todos for logged-in user
-router.get('/', authMiddleware, (req, res) => {
+router.get('/', (req, res) => {
     try {
         const getTodos = db.prepare('SELECT * FROM todos WHERE user_id = ?')
         const todos = getTodos.all(req.userId)
@@ -18,7 +17,7 @@ router.get('/', authMiddleware, (req, res) => {
 })
 
 // Create a new todo
-router.post('/', authMiddleware, (req, res) => {
+router.post('/', (req, res) => {
     const { task } = req.body
 
     if (!task) {
@@ -41,7 +40,7 @@ router.post('/', authMiddleware, (req, res) => {
 })
 
 // Update a todo
-router.put('/:id', authMiddleware, (req, res) => {
+router.put('/:id', (req, res) => {
     const { id } = req.params
     const { task, completed } = req.body
 
@@ -86,7 +85,7 @@ router.put('/:id', authMiddleware, (req, res) => {
 })
 
 // Delete a todo
-router.delete('/:id', authMiddleware, (req, res) => {
+router.delete('/:id', (req, res) => {
     const { id } = req.params
 
     try {
